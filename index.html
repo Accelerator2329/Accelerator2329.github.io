@@ -48,6 +48,8 @@
             border: none;
             width: 500px;
             height: 40px;
+            vertical-align: middle;
+            line-height: 40px;
             font-size: 40px;
             font-family: 'MI Lan Pro VF';
             font-weight: 500;
@@ -55,13 +57,13 @@
             background-color: #ffffff;
         }
         #yourLocation{
-            top: 895px;
+            top: 897px;
         }
         #yourName{
-            top: 994px;
+            top: 996px;
         }
         #yourUnit{
-            top: 1187px;
+            top: 1189px;
         }
         #print{
             position: relative;
@@ -84,10 +86,7 @@
             seconds = date.getSeconds();
             seconds = (seconds < 10 ? "0" + seconds : seconds);
             ms = date.getMilliseconds() / 10;
-            ms = Math.round(ms);
-            if (ms == 100) {
-                ms = "00";
-            }
+            ms = Math.round(ms) % 100;
             if (ms < 10) {
                 ms = "0" + ms;
             }
