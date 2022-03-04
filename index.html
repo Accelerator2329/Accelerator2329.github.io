@@ -25,10 +25,18 @@
             font-weight: 400;
             color: #081a04;
         }
+        #timeBlock {
+            width: 780px;
+            height: 130px;
+            position: absolute;
+            left: 150px;
+            top: 712px;          
+        }
         #time {
             position: absolute;
-            left: 286px;
-            top: 735px;
+            padding-left:150px;
+            padding-top: 35px;
+            line-height: 100%;
             font-size: 60px;
             font-family: 'MI Lan Pro VF';
             font-weight: 300;
@@ -42,7 +50,7 @@
             height: 40px;
             font-size: 40px;
             font-family: 'MI Lan Pro VF';
-            font-weight: 400;
+            font-weight: 500;
             color: #828282;
             background-color: #ffffff;
         }
@@ -94,7 +102,9 @@
     <div>
         <img src="Print.png" id="print" />
     </div>
-    <div id="time"></div>
+    <div id="timeBlock">
+        <span id="time"></span>
+    </div>
     <input type="text" id="yourLocation">
     <input type="text" id="yourName">
     <input type="text" id="yourUnit">
