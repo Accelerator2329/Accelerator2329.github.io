@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        body {
+            width: 1080px;
+            height: 2340px;
+            background-image: url(Background.png);
+            background-position: 0 0;
+            background-repeat: no-repeat;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #stateDock {
+            position: absolute;
+            left: 170px;
+            top: 35px;
+            font-size: 40px;
+            font-family: 'MI Lan Pro VF';
+            font-weight: 400;
+            color: #081a04;
+        }
+        #time {
+            position: absolute;
+            left: 286px;
+            top: 735px;
+            font-size: 60px;
+            font-family: 'MI Lan Pro VF';
+            font-weight: 300;
+            color: #ffffff;
+        }
+        input {
+            position: absolute;
+            left: 424px;
+            border: none;
+            width: 500px;
+            height: 40px;
+            font-size: 40px;
+            font-family: 'MI Lan Pro VF';
+            font-weight: 400;
+            color: #828282;
+            background-color: #ffffff;
+        }
+        #yourLocation{
+            top: 896px;
+        }
+        #yourName{
+            top: 995px;
+        }
+        #yourUnit{
+            top: 1188px;
+        }
+        #print{
+            position: relative;
+            left: 665px;
+            top: 1050px;
+            z-index: 99;
+        }
+    </style>
+    <script>
+        function time() {
+            var date = new Date();
+            month = date.getMonth();
+            month = (month < 10 ? "0" + month : month);
+            day = date.getDate();
+            day = (day < 10 ? "0" + day : day);
+            hours = date.getHours();
+            hours = (hours < 10 ? "0" + hours : hours);
+            minutes = date.getMinutes();
+            minutes = (minutes < 10 ? "0" + minutes : minutes);
+            seconds = date.getSeconds();
+            seconds = (seconds < 10 ? "0" + seconds : seconds);
+            ms = date.getMilliseconds() / 10;
+            ms = Math.round(ms);
+            if (ms == 100) {
+                ms = "00";
+            }
+            if (ms < 10) {
+                ms = "0" + ms;
+            }
+            document.getElementById("stateDock").innerHTML = hours + ":" + minutes;
+            document.getElementById("time").innerHTML =  month + "-" + day + "\t" + hours + ":" + minutes + ":" + seconds + "." + ms;
+        };
+        setInterval("time()", 10);
+    </script>
+</head>
+<body>
+    <div id="stateDock"></div>
+    <div>
+        <img src="Print.png" id="print" />
+    </div>
+    <div id="time"></div>
+    <input type="text" id="yourLocation">
+    <input type="text" id="yourName">
+    <input type="text" id="yourUnit">
+</body>
+</html>
