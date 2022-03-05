@@ -3,7 +3,9 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
-    <title></title>
+    <title>武大日报健康</title>
+    <link rel="icon" href="logo.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="logo.ico" type="image/x-icon">
     <style>
         body {
             width: 1080px;
@@ -12,35 +14,47 @@
             background-position: 0 0;
             background-repeat: no-repeat;
         }
-        *{
+
+        * {
             margin: 0;
             padding: 0;
         }
+
         #stateDock {
             position: absolute;
-            left: 170px;
-            top: 35px;
+            left: 163px;
+            top: 42px;
+            height: 40px;
+        }
+
+        #stateDockTime {
+            position: absolute;
+            vertical-align: middle;
+            line-height: 40px;
             font-size: 40px;
-            font-weight: 400;
+            font-weight: 500;
             color: #081a04;
         }
+
         #timeBlock {
             width: 780px;
             height: 130px;
             position: absolute;
             left: 150px;
-            top: 712px;          
+            top: 712px;
         }
+
         #time {
             position: absolute;
-            padding-left:150px;
+            padding-left: 150px;
             padding-top: 35px;
             line-height: 100%;
             font-size: 60px;
             font-weight: 500;
             color: #ffffff;
         }
-        input {
+
+/*        input {
             position: absolute;
             left: 424px;
             border: none;
@@ -52,27 +66,54 @@
             font-weight: 500;
             color: #828282;
             background-color: #ffffff;
+        }*/
+        input {
+            border: none;
+            width: 500px;
+            height: 60px;
+            vertical-align: middle;
+            line-height: 40px;
+            font-size: 40px;
+            font-weight: 500;
+            color: #828282;
         }
-        #yourLocation{
-            top: 897px;
+
+        #text {
+            height: 60px;
+            vertical-align: middle;
+            line-height: 60px;
         }
-        #yourName{
-            top: 996px;
+
+        #infoTable {
+            position: absolute;
+            left: 226px;
+            top: 866px;
+            z-index: 9;
+            border: none;
+            height: 40px;
+            vertical-align: middle;
+            line-height: 40px;
+            font-size: 40px;
+            font-weight: 500;
+            color: #828282;
         }
-        #yourUnit{
-            top: 1189px;
+
+        tr {
+            height: 95.5px;
         }
-        #print{
+
+        #print {
             position: relative;
             left: 665px;
             top: 1050px;
             z-index: 99;
         }
     </style>
+
     <script>
         function time() {
             var date = new Date();
-            month = date.getMonth();
+            month = date.getMonth() + 1;
             month = (month < 10 ? "0" + month : month);
             day = date.getDate();
             day = (day < 10 ? "0" + day : day);
@@ -87,22 +128,45 @@
             if (ms < 10) {
                 ms = "0" + ms;
             }
-            document.getElementById("stateDock").innerHTML = hours + ":" + minutes;
-            document.getElementById("time").innerHTML =  month + "-" + day + "\t" + hours + ":" + minutes + ":" + seconds + "." + ms;
+            document.getElementById("stateDockTime").innerHTML = hours + ":" + minutes;
+            document.getElementById("time").innerHTML = month + "-" + day + "\t" + hours + ":" + minutes + ":" + seconds + "." + ms;
         };
         setInterval("time()", 10);
+
+        alert("建议打开全屏模式");
     </script>
 </head>
 <body>
-    <div id="stateDock"></div>
+    <div id="stateDock">
+        <span id="stateDockTime"></span>
+    </div>
     <div>
         <img src="Print.png" id="print" />
     </div>
     <div id="timeBlock">
         <span id="time"></span>
     </div>
-    <input type="text" id="yourLocation">
-    <input type="text" id="yourName">
-    <input type="text" id="yourUnit">
+    <table id="infoTable">
+        <tr>
+            <td>通行地点&nbsp:&nbsp</td>
+            <td><input type="text" class="text"></td>
+        </tr>
+        <tr>
+            <td>本人姓名&nbsp:&nbsp</td>
+            <td><input type="text" class="text"></td>
+        </tr>
+        <tr>
+            <td>人员类别&nbsp:&nbsp</td>
+            <td>在校普通本科</td>
+        </tr>
+        <tr>
+            <td>单位名称&nbsp:&nbsp</td>
+            <td><input type="text" class="text"></td>
+        </tr>
+        <tr>
+            <td>证件类型&nbsp:&nbsp</td>
+            <td>身份证</td>
+        </tr>
+    </table>
 </body>
 </html>
